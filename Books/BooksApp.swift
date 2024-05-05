@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct BooksApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let client = RemoteHTTPClient()
+            let remoteBooksLoader = RemoteBooksLoader(client: client)
+            let viewModel = BooksViewModel(remoteBookLoader: remoteBooksLoader)
+            BooksView(viewModel: viewModel)
         }
     }
 }
