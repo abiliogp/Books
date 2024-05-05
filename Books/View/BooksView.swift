@@ -87,7 +87,6 @@ struct BooksView: View {
 }
 
 #Preview("Error") {
-    let response = ListBooks.makeListBooks()
     let client = MockHTTPClient()
     client.error = NSError(domain: "Test", code: 404, userInfo: nil)
     let remoteBooksLoader = RemoteBooksLoader(client: client)
