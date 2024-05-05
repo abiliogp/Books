@@ -11,7 +11,7 @@ public protocol BooksLoader {
     func load() async throws -> ListBooks
 }
 
-public final class RemoteBooksLoader {
+public final class RemoteBooksLoader: BooksLoader {
     private let client: HTTPClient
 
     public enum Error: Swift.Error {

@@ -7,37 +7,9 @@
 
 import SwiftUI
 
-class BooksViewModel: ObservableObject {
-    enum Status {
-        case loading
-        case ready([Book])
-        case error(Error)
-    }
-    
-    @Published var status: Status = .loading
-    private let remoteBookLoader: RemoteBooksLoader
-    
-    init(remoteBookLoader: RemoteBooksLoader) {
-        self.remoteBookLoader = remoteBookLoader
-    }
-    
-    @MainActor
-    func load() {
-        Task {
-            do {
-                status = .loading
-                let list = try await remoteBookLoader.load()
-                status = .ready(list.results)
-            } catch {
-                status = .error(error)
-            }
-        }
-    }
-}
-
 struct BooksView: View {
     @ObservedObject var viewModel: BooksViewModel
-    
+    @ObservedObject var favoriteState: FavoriteState
     
     var body: some View {
         NavigationView {
@@ -62,7 +34,7 @@ struct BooksView: View {
         List {
             ForEach(books, id: \.id) { book in
                 NavigationLink {
-                    DetailBookView(viewModel: .init(book: book))
+                    DetailBookView(viewModel: .init(book: book), favoriteState: favoriteState)
                 } label: {
                     HStack {
                         AsyncImage(url: URL(string: book.formats.imageJPEG)!) { image in
@@ -84,8 +56,7 @@ struct BooksView: View {
                             Text(book.authors.first!.name)
                                 .font(.caption)
                             
-                            Image(systemName: "heart")
-                                .frame(width: 20, height: 20)
+                            FavoriteView(favoriteState: favoriteState, bookId: book.id)
                         }
                     }
                 }
@@ -108,5 +79,5 @@ struct BooksView: View {
     client.responseData = response.data
     let remoteBooksLoader = RemoteBooksLoader(client: client)
     let viewModel = BooksViewModel(remoteBookLoader: remoteBooksLoader)
-    return BooksView(viewModel: viewModel)
+    return BooksView(viewModel: viewModel, favoriteState: .init(userDefaults: MockUserDefaults()))
 }

@@ -9,13 +9,24 @@ import SwiftUI
 
 @main
 struct BooksApp: App {
+    private let client: HTTPClient
+    private let booksLoader: BooksLoader
+    private let favoriteState: FavoriteState
     
+    
+    init() {
+        client = RemoteHTTPClient()
+        booksLoader = RemoteBooksLoader(client: client)
+        favoriteState = FavoriteState()
+    }
+
     var body: some Scene {
         WindowGroup {
-            let client = RemoteHTTPClient()
-            let remoteBooksLoader = RemoteBooksLoader(client: client)
-            let viewModel = BooksViewModel(remoteBookLoader: remoteBooksLoader)
-            BooksView(viewModel: viewModel)
+            let viewModel = BooksViewModel(remoteBookLoader: booksLoader)
+            BooksView(viewModel: viewModel, favoriteState: favoriteState)
+                .onAppear {
+                    favoriteState.load()
+                }
         }
     }
 }

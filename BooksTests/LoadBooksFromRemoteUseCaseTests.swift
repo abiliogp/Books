@@ -43,15 +43,4 @@ private extension LoadBooksFromRemoteUseCaseTests {
         }
         action()
     }
-    
-    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteBooksLoader, client: MockHTTPClient) {
-        let client = MockHTTPClient()
-        let sut = RemoteBooksLoader(client: client)
-        return (sut, client)
-    }
-    
-    struct HTTPResult {
-        let error: Error?
-        let data: Data?
-    }
 }
