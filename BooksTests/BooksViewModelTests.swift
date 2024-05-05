@@ -9,14 +9,14 @@ import XCTest
 @testable import Books
 
 final class BooksViewModelTests: XCTestCase {
-    func testLoad_NotLoad() async throws {
+    func test_load_NotLoad() async throws {
         let (sut, _) = makeSUT()
         let viewModel = BooksViewModel(remoteBookLoader: sut)
         
         XCTAssertEqual(viewModel.status, .loading)
     }
     
-    func testLoad_Success() async throws {
+    func test_load_Success() async throws {
         let (sut, client) = makeSUT()
         let response = ListBooks.makeListBooks()
         client.responseData = response.data
@@ -24,7 +24,7 @@ final class BooksViewModelTests: XCTestCase {
         expect(sut, expectStatus: .ready(response.result.results))
     }
     
-    func testLoad_Failure() async throws {
+    func test_load_Failure() async throws {
         let error = NSError(domain: "Test", code: 404, userInfo: nil)
         let (sut, client) = makeSUT()
         client.error = error

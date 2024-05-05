@@ -130,8 +130,8 @@
 			children = (
 				E04BBF872BE63CFA004DF7D2 /* LoadBooksFromRemoteUseCaseTests.swift */,
 				E09C8DE12BE7EA17006C379F /* BooksViewModelTests.swift */,
-				E09C8DE32BE7ED2A006C379F /* XCTestCase+Helper.swift */,
 				E09C8DEA2BE7F34E006C379F /* FavoriteStateTests.swift */,
+				E09C8DF02BE7F88B006C379F /* Helper */,
 			);
 			path = BooksTests;
 			sourceTree = "<group>";
@@ -157,13 +157,21 @@
 		E09C8DE92BE7EF47006C379F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E09C8DDF2BE7E8CB006C379F /* FavoriteView.swift */,
+				E071D1B02BE631610044282B /* BooksView.swift */,
+				E09C8DE52BE7EED9006C379F /* BooksViewModel.swift */,
 				E0ABBCD02BE6BD860027BC5E /* DetailBookView.swift */,
 				E09C8DE72BE7EF0E006C379F /* DetailBookViewModel.swift */,
-				E09C8DE52BE7EED9006C379F /* BooksViewModel.swift */,
-				E071D1B02BE631610044282B /* BooksView.swift */,
+				E09C8DDF2BE7E8CB006C379F /* FavoriteView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E09C8DF02BE7F88B006C379F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E09C8DE32BE7ED2A006C379F /* XCTestCase+Helper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		E0ABBCCB2BE6B1740027BC5E /* Helper */ = {

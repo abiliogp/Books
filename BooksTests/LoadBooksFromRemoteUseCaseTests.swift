@@ -8,7 +8,6 @@
 import XCTest
 @testable import Books
 
-
 final class LoadBooksFromRemoteUseCaseTests: XCTestCase {
     func test_load_throwsWithInvalidJSON() async {
         let (sut, client) = makeSUT()
@@ -27,8 +26,6 @@ final class LoadBooksFromRemoteUseCaseTests: XCTestCase {
             client.responseData = result.data
         }
     }
-    
-    
 }
 
 private extension LoadBooksFromRemoteUseCaseTests {

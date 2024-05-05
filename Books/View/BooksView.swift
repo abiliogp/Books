@@ -25,9 +25,6 @@ struct BooksView: View {
             }
             .navigationTitle("Books")
         }
-        .onAppear {
-            viewModel.load()
-        }
     }
     
     func readyView(_ books: [Book]) -> some View {
@@ -73,11 +70,28 @@ struct BooksView: View {
     }
 }
 
-#Preview {
+
+#Preview("Loading") {
+    let viewModel = BooksViewModel(remoteBookLoader: RemoteBooksLoader(client: MockHTTPClient()))
+    return BooksView(viewModel: viewModel, favoriteState: .init(userDefaults: MockUserDefaults()))
+}
+
+#Preview("Ready") {
     let response = ListBooks.makeListBooks()
     let client = MockHTTPClient()
     client.responseData = response.data
     let remoteBooksLoader = RemoteBooksLoader(client: client)
     let viewModel = BooksViewModel(remoteBookLoader: remoteBooksLoader)
+    viewModel.load()
+    return BooksView(viewModel: viewModel, favoriteState: .init(userDefaults: MockUserDefaults()))
+}
+
+#Preview("Error") {
+    let response = ListBooks.makeListBooks()
+    let client = MockHTTPClient()
+    client.error = NSError(domain: "Test", code: 404, userInfo: nil)
+    let remoteBooksLoader = RemoteBooksLoader(client: client)
+    let viewModel = BooksViewModel(remoteBookLoader: remoteBooksLoader)
+    viewModel.load()
     return BooksView(viewModel: viewModel, favoriteState: .init(userDefaults: MockUserDefaults()))
 }

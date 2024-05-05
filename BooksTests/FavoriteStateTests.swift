@@ -10,7 +10,7 @@ import XCTest
 
 final class FavoriteStateTests: XCTestCase {
     
-    func testMarkFavorite() {
+    func test_mark_favorite() {
         let favoriteState = FavoriteState()
         
         favoriteState.markFavorite(bookId: 1)
@@ -26,7 +26,7 @@ final class FavoriteStateTests: XCTestCase {
         XCTAssertTrue(favoriteState.favorities.contains(2), "Book with ID 2 should be marked as favorite")
     }
     
-    func testLoadAndSave() {
+    func test_load_and_save() {
         let mockUserDefaults = MockUserDefaults()
         let favoriteState = FavoriteState(userDefaults: mockUserDefaults)
         let favoritesToSave: Set<Int> = [1, 2, 3, 4, 5]

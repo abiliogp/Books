@@ -22,9 +22,10 @@ struct BooksApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let viewModel = BooksViewModel(remoteBookLoader: booksLoader)
-            BooksView(viewModel: viewModel, favoriteState: favoriteState)
+            let booksViewModel = BooksViewModel(remoteBookLoader: booksLoader)
+            BooksView(viewModel: booksViewModel, favoriteState: favoriteState)
                 .onAppear {
+                    booksViewModel.load()
                     favoriteState.load()
                 }
         }
