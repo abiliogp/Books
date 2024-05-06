@@ -28,6 +28,8 @@
 		E0ABBCCD2BE6B1840027BC5E /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABBCCC2BE6B1840027BC5E /* MockHTTPClient.swift */; };
 		E0ABBCCF2BE6B2420027BC5E /* ListBooks+Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABBCCE2BE6B2420027BC5E /* ListBooks+Maker.swift */; };
 		E0ABBCD12BE6BD860027BC5E /* DetailBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABBCD02BE6BD860027BC5E /* DetailBookView.swift */; };
+		E0CB6DA72BE8D3D500F65E55 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CB6DA62BE8D3D500F65E55 /* ImageLoaderView.swift */; };
+		E0CB6DA92BE8D76F00F65E55 /* DetailBookViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CB6DA82BE8D76F00F65E55 /* DetailBookViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		E0ABBCCC2BE6B1840027BC5E /* MockHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHTTPClient.swift; sourceTree = "<group>"; };
 		E0ABBCCE2BE6B2420027BC5E /* ListBooks+Maker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListBooks+Maker.swift"; sourceTree = "<group>"; };
 		E0ABBCD02BE6BD860027BC5E /* DetailBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookView.swift; sourceTree = "<group>"; };
+		E0CB6DA62BE8D3D500F65E55 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
+		E0CB6DA82BE8D76F00F65E55 /* DetailBookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				E04BBF872BE63CFA004DF7D2 /* LoadBooksFromRemoteUseCaseTests.swift */,
 				E09C8DE12BE7EA17006C379F /* BooksViewModelTests.swift */,
 				E09C8DEA2BE7F34E006C379F /* FavoriteStateTests.swift */,
+				E0CB6DA82BE8D76F00F65E55 /* DetailBookViewModelTests.swift */,
 				E09C8DF02BE7F88B006C379F /* Helper */,
 			);
 			path = BooksTests;
@@ -158,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				E071D1B02BE631610044282B /* BooksView.swift */,
+				E0CB6DA62BE8D3D500F65E55 /* ImageLoaderView.swift */,
 				E09C8DE52BE7EED9006C379F /* BooksViewModel.swift */,
 				E0ABBCD02BE6BD860027BC5E /* DetailBookView.swift */,
 				E09C8DE72BE7EF0E006C379F /* DetailBookViewModel.swift */,
@@ -290,6 +296,7 @@
 				E09C8DE62BE7EED9006C379F /* BooksViewModel.swift in Sources */,
 				E071D1AF2BE631610044282B /* BooksApp.swift in Sources */,
 				E0ABBCCD2BE6B1840027BC5E /* MockHTTPClient.swift in Sources */,
+				E0CB6DA72BE8D3D500F65E55 /* ImageLoaderView.swift in Sources */,
 				E04BBF842BE638FD004DF7D2 /* RemoteBooksLoader.swift in Sources */,
 				E071D1DA2BE632590044282B /* HTTPClient.swift in Sources */,
 				E09C8DE02BE7E8CB006C379F /* FavoriteView.swift in Sources */,
@@ -309,6 +316,7 @@
 			files = (
 				E09C8DE42BE7ED2A006C379F /* XCTestCase+Helper.swift in Sources */,
 				E04BBF882BE63CFA004DF7D2 /* LoadBooksFromRemoteUseCaseTests.swift in Sources */,
+				E0CB6DA92BE8D76F00F65E55 /* DetailBookViewModelTests.swift in Sources */,
 				E09C8DE22BE7EA17006C379F /* BooksViewModelTests.swift in Sources */,
 				E09C8DEB2BE7F34E006C379F /* FavoriteStateTests.swift in Sources */,
 			);

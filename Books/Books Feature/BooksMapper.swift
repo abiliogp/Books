@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum BooksMapper {
     static func map(_ data: Data) async throws -> ListBooks {
         guard let books = try? JSONDecoder().decode(ListBooks.self, from: data) else {

@@ -34,15 +34,9 @@ struct BooksView: View {
                     DetailBookView(viewModel: .init(book: book), favoriteState: favoriteState)
                 } label: {
                     HStack {
-                        AsyncImage(url: URL(string: book.formats.imageJPEG)!) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 60, height: 60)
-                        .padding()
+                        ImageLoaderView(urlString: book.formats.imageJPEG)
+                            .frame(width: 60, height: 60)
+                            .padding()
                         
                         Divider()
                         

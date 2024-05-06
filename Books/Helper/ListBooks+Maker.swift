@@ -9,7 +9,7 @@ import Foundation
 
 extension ListBooks {
     static func makeListBooks() -> (data: Data, result: ListBooks) {
-        let anyURLStr = "https://example.com/sample_book.html"
+        let anyURLStr = "https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg"
         
         let book = Book(id: 123,
                         title: "Sample Book",

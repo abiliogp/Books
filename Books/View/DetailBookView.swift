@@ -14,15 +14,9 @@ struct DetailBookView: View {
     var body: some View {
         ScrollView {
             VStack {
-                AsyncImage(url: URL(string: viewModel.book.formats.imageJPEG)!) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(height: 200)
-                .padding()
+                ImageLoaderView(urlString: viewModel.book.formats.imageJPEG)
+                    .frame(height: 200)
+                    .padding()
                 
                 Divider()
                 
@@ -65,20 +59,20 @@ struct DetailBookView: View {
                     
                     Divider()
                     
-                    Text("Bookshelves")
-                        .font(.caption)
-                    
-                    ForEach(viewModel.book.bookshelves, id: \.self) { bookshelve in
-                        Text(bookshelve)
+                    if !viewModel.book.bookshelves.isEmpty {
+                        Text("Bookshelves")
                             .font(.caption)
-                            .lineLimit(nil)
+                        
+                        ForEach(viewModel.book.bookshelves, id: \.self) { bookshelve in
+                            Text(bookshelve)
+                                .font(.caption)
+                                .lineLimit(nil)
+                        }
+                        
+                        Divider()
                     }
-                    
-                    Divider()
                 }
                 .fixedSize(horizontal: false, vertical: true)
-                
-                
             }
             .padding(16)
         }
